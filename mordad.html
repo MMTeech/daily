@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>برنامه‌ روزانه</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazir:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #4361ee;
+      --secondary-color: #3f37c9;
+      --accent-color: #4895ef;
+      --light-color: #f8f9fa;
+      --dark-color: #212529;
+      --success-color: #4cc9f0;
+      --warning-color: #f72585;
+      --border-radius: 14px;
+      --box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+    
+    body {
+      font-family: 'Vazir', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      direction: rtl;
+      margin: 0;
+    }
+
+    .table-container {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .schedule {
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      width: 320px;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .schedule::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+      z-index: 2;
+    }
+    
+    .schedule:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .schedule h3 {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      margin: 0;
+      padding: 18px;
+      text-align: center;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    
+    .schedule h3::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      right: 20px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      transform: rotate(45deg);
+      z-index: -1;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    tr {
+      transition: var(--transition);
+    }
+    
+    tr:hover {
+      background-color: rgba(67, 97, 238, 0.05);
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      text-align: center;
+      font-size: 16px;
+      position: relative;
+    }
+    
+    td:first-child {
+      font-weight: 500;
+      color: var(--dark-color);
+      text-align: right;
+      padding-right: 24px;
+    }
+    
+    td:last-child {
+      color: var(--primary-color);
+      font-weight: 700;
+      text-align: left;
+      padding-left: 24px;
+    }
+    
+    td:first-child::before {
+      content: '•';
+      color: var(--accent-color);
+      font-size: 24px;
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Different colors for each table */
+    .schedule:first-child h3 {
+      background: linear-gradient(135deg, #7209b7, #560bad);
+    }
+    .schedule:first-child::before {
+      background: linear-gradient(90deg, #7209b7, #560bad);
+    }
+    .schedule:first-child td:first-child::before {
+      color: #b5179e;
+    }
+    .schedule:first-child td:last-child {
+      color: #7209b7;
+    }
+    
+    .schedule:last-child h3 {
+      background: linear-gradient(135deg, #f72585, #b5179e);
+    }
+    .schedule:last-child::before {
+      background: linear-gradient(90deg, #f72585, #b5179e);
+    }
+    .schedule:last-child td:first-child::before {
+      color: #f72585;
+    }
+    .schedule:last-child td:last-child {
+      color: #f72585;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .table-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+      
+      .schedule {
+        width: 100%;
+        max-width: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <h1>برنامه ماه دوم</h1>
+    <!-- زوج -->
+    <div class="schedule">
+      <h3>روزهای زوج</h3>
+      <table>
+        <tr><td>Vue js</td><td>1h</td></tr>
+        <tr><td>Laravel</td><td>1h</td></tr>
+        <tr><td>WP Plugin</td><td>1h</td></tr>
+        <tr><td>English</td><td>1h</td></tr>
+      </table>
+    </div>
+
+    <!-- فرد -->
+    <div class="schedule">
+      <h3>روزهای فرد</h3>
+      <table>
+        <tr><td>Vue js</td><td>1h</td></tr>
+        <tr><td>Laravel</td><td>1h</td></tr>
+        <tr><td>JavaScript</td><td>1h</td></tr>
+        <tr><td>English</td><td>1h</td></tr>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>
